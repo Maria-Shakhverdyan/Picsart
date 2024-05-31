@@ -1,0 +1,7 @@
+b = ((0.1 + 0.2) == 0.3) False, Why?
+
+Answer: In programming languages ​​that use floating point, floating-point arithmetic operations may not produce accurate results due to limitations in the binary representation of numbers. In the case of 0.1 + 0.2, the result is not exactly 0.3 due to the accumulation of rounding errors.
+
+When you perform the 0.1 + 0.2 operation in Python, the result is slightly greater than 0.3. This is because 0.1 and 0.2 cannot be represented exactly in binary.
+
+The result is 0.30000000000000004
