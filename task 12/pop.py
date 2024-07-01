@@ -8,22 +8,31 @@ while count < n:
     count += 1
 
 # tarberak 1
-if len(ls) == 0:
-    raise IndexError("pop from empty list")
+try:
+    if len(ls) == 0:
+        raise IndexError("pop from empty list")
+except IndexError as e:
+    print(f"An error occurred: {e}")
+    exit()
 
+new = []    
 for i in ls:
-    if i not in ls:
-        break
-    elif (i != ls[-1]):
+    if(i != ls[-1]):
         new.append(i)
+
 
 print(ls[-1])
 print("The final list: ", new)
 
 
 # tarberak 2
-# if len(ls) == 0:
-#     raise IndexError("pop from empty list")
+
+# try:
+#     if len(ls) == 0:
+#         raise IndexError("pop from empty list")
+# except IndexError as e:
+#     print(f"An error occurred: {e}")
+#     exit()
 
 # popped_element = ls[-1]
 # ls = ls[:-1]
