@@ -1,10 +1,10 @@
-def summa(number):
-    if number == 0:
-        return 0
+def fact(number):
+    if number <= 1:
+        return 1
     else:
-        return number + (summa(number - 1))
+        return number + (fact(number - 1))
     
-number = int(input("Enter yhe number: "))
-result = summa(number)
+number = int(input("Enter the number: "))
+result = fact(number)
 
 print(result)
