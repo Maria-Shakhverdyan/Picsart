@@ -24,8 +24,27 @@ def my_filter(predicate: callable, iterable: list) -> list:
 
         print(odd_numbers)
     '''
-    
+    try:
+        if not callable(predicate):
+            raise TypeError("func must be callable")
+    except TypeError as e:
+        print(f"Error: {e}")
+        return []
     result = []
+    
+    try:
+        iterator = iter(iterable)
+    except TypeError as e:
+        print(f"Error: {e}")
+        return []
+    
+    try:
+        results = [predicate(item) for item in iterable]
+    except Exception as e:
+        print(f"Error while applying function: {e}")
+        return []
+
+    return results
 
     for item in iterable:
         if predicate(item):
