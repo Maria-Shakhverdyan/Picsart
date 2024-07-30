@@ -20,8 +20,27 @@ def my_map(func: callable, iterable: list) -> list:
         squared_numbers = my_map(square, numbers)
         print(squared_numbers)  # Output: [1, 4, 9, 16]
     '''
-
+    try:
+        if not callable(func):
+            raise TypeError("func must be callable")
+    except TypeError as e:
+        print(f"Error: {e}")
+        return []
     result = []
+    
+    try:
+        iterator = iter(iterable)
+    except TypeError as e:
+        print(f"Error: {e}")
+        return []
+
+    try:
+        results = [func(item) for item in iterable]
+    except Exception as e:
+        print(f"Error while applying function: {e}")
+        return []
+
+    return results
 
     for item in iterable:
         result.append(func(item))
