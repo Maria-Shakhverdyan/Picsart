@@ -26,7 +26,6 @@ def my_map(func: callable, iterable: list) -> list:
     except TypeError as e:
         print(f"Error: {e}")
         return []
-    result = []
     
     try:
         iterator = iter(iterable)
@@ -42,9 +41,8 @@ def my_map(func: callable, iterable: list) -> list:
 
     return results
 
-    for item in iterable:
-        result.append(func(item))
-
+    result = [func(item) for item in iterable]
+    
     return result
 
 def square(x: int) -> int:
