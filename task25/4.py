@@ -1,3 +1,5 @@
+import time
+
 def retry(retry_count):
     def decorator(func):
         def wrapper(*args, **kwargs):
@@ -9,6 +11,7 @@ def retry(retry_count):
                 except Exception as e:
                     attempt += 1
                     print(f"The attempt {attempt} failed: {e}")
+                    time.sleep(2)
             raise Exception(f"Function failed after {retry_count} retries")
         return wrapper
     return decorator
