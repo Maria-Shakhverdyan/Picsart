@@ -29,8 +29,11 @@ def square(a):
 def sub(a, b):
     return a - b if a > b else b - a
 
-print("The result of add: ", add(4, 5.5))
+@validate_positive_integers
+def add_kw(a, b, *, c):
+    return a + b + c
+
 print("The result of div: ", div(5, 4))
 print("The result of square: ", square(4))
 print("The result of sub: ", sub(4, 8))
-print("The result of add: ", add(4, 0))
+print("The result of add(kw only): ", add_kw(1, 2, c = 3))
