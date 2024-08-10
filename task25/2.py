@@ -8,7 +8,7 @@ def process_json(input_file, output_file, attribute, value):
     filtered_data = [entry for entry in data if entry.get(attribute) == value]
     
     file = open(output_file, 'w')
-    json.dump(filtered_data, file)
+    json.dump(filtered_data, file, indent=4)
     file.close()
     
     print(f"Filtered data has been written to {output_file}")
