@@ -29,7 +29,7 @@ def square(a):
 def sub(a, b):
     return a - b if a > b else b - a
 
-print("The result of add: ", add(4, 5))
+print("The result of add: ", add(4, 5.5))
 print("The result of div: ", div(5, 4))
 print("The result of square: ", square(4))
 print("The result of sub: ", sub(4, 8))
