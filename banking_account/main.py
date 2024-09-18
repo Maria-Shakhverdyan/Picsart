@@ -3,7 +3,6 @@ from customer import Customer
 from transfer import Transaction
 
 def main():
-    # Example Usage
     cust1 = Customer(name="Maria", contact_info="maria@example.com")
     check_acc = CheckingAccount(account_number=123456, balance=1000.0, overdraft_limit=500.0)
     sav_acc = SavingsAccount(account_number=654321, balance=1500.0, interest_rate=0.03)
