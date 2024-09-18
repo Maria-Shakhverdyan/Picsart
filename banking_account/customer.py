@@ -15,5 +15,4 @@ class Customer:
             print(f"Account Number: {account.get_account_number()} | Type: {account.get_account_type()} | Balance: ${account.get_balance()}")
 
     def view_transaction_history(self) -> None:
-        # Placeholder for viewing transaction history
         print("Viewing transaction history is not implemented yet.")
