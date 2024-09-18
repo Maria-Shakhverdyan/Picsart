@@ -22,5 +22,4 @@ class Transaction:
         self.__timestamp = datetime.now()
 
     def log(self) -> None:
-        # Implementation for logging the transaction
         print(f"Transaction: {self.__transaction_type} | Amount: ${self.__amount} | Time: {self.__timestamp}")
