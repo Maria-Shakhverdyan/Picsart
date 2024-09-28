@@ -59,7 +59,6 @@ class DynamicArray:
             self.append(other.__array[i])
         return self
 
-    
     def __eq__(self, other: 'DynamicArray') -> bool:
         if not isinstance(other, DynamicArray):
             return False
@@ -106,61 +105,48 @@ class DynamicArray:
         new_array.__array = deepcopy(self.__array[:self.__size], memo)
         return new_array
 
-
 def main():
-    # Create an array with default capacity
     arr1 = DynamicArray()
     print("Created an empty array:", arr1)
     
-    # Add elements to the array
     arr1.append(1)
     arr1.append(2)
     arr1.append(3)
     print("Array after adding elements:", arr1)
     
-    # Get the length of the array
     print("Length of the array:", len(arr1))
     
-    # Check the current capacity
     print("Capacity of the array:", arr1.capacity())
     
-    # Use __getitem__ and __setitem__
-    print("Element at index 1:", arr1[1])  # Should return 2
-    arr1[1] = 20  # Modify the element at index 1
+    print("Element at index 1:", arr1[1])
+    arr1[1] = 20
     print("Array after modifying the element at index 1:", arr1)
     
-    # Use __str__ and __repr__
     print("User-friendly representation of the array:", str(arr1))
     print("Official representation of the array:", repr(arr1))
     
-    # Add elements to trigger capacity increase
     for i in range(4, 11):
         arr1.append(i)
     print("Array after adding elements (triggering capacity increase):", arr1)
     print("Capacity after increase:", arr1.capacity())
 
-    # Create a second array
     arr2 = DynamicArray()
     arr2.append(10)
     arr2.append(11)
     print("Second array:", arr2)
     
-    # Add arrays together (__add__)
     arr3 = arr1 + arr2
     print("Result of adding arr1 and arr2:", arr3)
 
-    # In-place addition operation (__iadd__)
     arr1 += arr2
     print("Array arr1 after operation += with arr2:", arr1)
 
-    # Compare arrays (__eq__, __lt__, __le__, __gt__, __ge__)
     print("arr1 == arr2?", arr1 == arr2)
     print("arr1 < arr2?", arr1 < arr2)
     print("arr1 <= arr2?", arr1 <= arr2)
     print("arr1 > arr2?", arr1 > arr2)
     print("arr1 >= arr2?", arr1 >= arr2)
 
-    # Use the iterator
     print("Iterating over array arr1:")
     for value in arr1:
         print(value, end=' ')
