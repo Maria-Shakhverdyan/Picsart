@@ -1,14 +1,9 @@
 from abc import ABC, abstractmethod
 from datetime import datetime
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from user import User
-    from conversation import Conversation
+from conversation import Conversation
     
 class Message(ABC):
-    from user import User
-    def __init__(self, sender: 'User', conversation: 'Conversation') -> None:
+    def __init__(self, sender, conversation: 'Conversation') -> None:
         self.__sender = sender
         self.__conversation = conversation
         self.__timestamp = datetime.now()
@@ -21,7 +16,7 @@ class Message(ABC):
     def get_message_type(self) -> str:
         pass
 
-    def get_sender(self) -> 'User':
+    def get_sender(self):
         return self.__sender
     
     def get_conversation(self) -> 'Conversation':
@@ -32,7 +27,7 @@ class Message(ABC):
 
 
 class TextMessage(Message):
-    def __init__(self, sender: 'User', conversation: 'Conversation', content: str) -> None:
+    def __init__(self, sender, conversation: 'Conversation', content: str) -> None:
         super().__init__(sender, conversation)
         self.__content = content
 
@@ -44,7 +39,7 @@ class TextMessage(Message):
 
 
 class MultimediaMessage(Message):
-    def __init__(self, sender: 'User', conversation: 'Conversation', file_path: str, media_type: str) -> None:
+    def __init__(self, sender, conversation: 'Conversation', file_path: str, media_type: str) -> None:
         super().__init__(sender, conversation)
         self.__file_path = file_path
         self.__media_type = media_type
