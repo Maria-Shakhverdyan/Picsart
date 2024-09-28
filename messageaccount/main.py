@@ -1,6 +1,5 @@
 from user import User
-from message import Message, TextMessage, MultimediaMessage
-from conversation import Conversation
+from message import TextMessage, MultimediaMessage
 
 def main():
     user1 = User("Alice", "alice@example.com", [])
