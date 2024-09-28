@@ -1,10 +1,6 @@
 from typing import List
-from typing import TYPE_CHECKING
-
-
-if TYPE_CHECKING:
-    from message import Message, MultimediaMessage, TextMessage
-    from conversation import Conversation
+from message import Message
+from conversation import Conversation
 
 class User:
     def __init__(self, name: str, contact_info: str, conversations: List['Conversation']) -> None:
